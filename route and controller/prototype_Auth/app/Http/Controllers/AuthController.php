@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -16,7 +15,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials))
         {
-            return redirect()->route('dashboard');
+            return redirect('articles');
         }
         return back()->withInput(['email' => 'Invalid credentials.']);
     }

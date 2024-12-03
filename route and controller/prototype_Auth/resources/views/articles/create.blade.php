@@ -1,16 +1,36 @@
 @extends ('layouts.app')
+
 @section('content')
-<h1> un Article</h1>
+<div class="container mt-5">
+    <h1 class="mb-4">Un Article</h1>
     <form action="/articles" method="POST" class="form-group">
         @csrf
         @if(isset($article))
             @method('PUT')
         @endif
-        <label for="title">Titre :</label>
-        <input type="text" name="title" value="" required>
-        <label for="content">Contenu :</label>
-        <textarea name="content" required></textarea>
-        <button type="submit" class="btn btn-primary">ajouter</button>
-    </form>
 
+        <div class="mb-3">
+            <label for="title" class="form-label">Titre :</label>
+            <input 
+                type="text" 
+                name="title" 
+                id="title" 
+                class="form-control" 
+                value="{{ isset($article) ? $article->title : '' }}" 
+                required>
+        </div>
+
+        <div class="mb-3">
+            <label for="content" class="form-label">Contenu :</label>
+            <textarea 
+                name="content" 
+                id="content" 
+                class="form-control" 
+                rows="5" 
+                required>{{ isset($article) ? $article->content : '' }}</textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Ajouter</button>
+    </form>
+</div>
 @endsection

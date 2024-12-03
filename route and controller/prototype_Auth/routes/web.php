@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::get('/articles', function (){
     return "articles.index";
-});
+})->name("articles");
 Route::get('/login',[AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login',[AuthController::class, 'login']);
 Route::middleware('auth.middleware')->group(function(){
