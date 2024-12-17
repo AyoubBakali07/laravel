@@ -104,9 +104,6 @@ return [
             explode(',', env('APP_PREVIOUS_KEYS', ''))
         ),
     ],
-    // 'aliases'=>[
-    //     'Category' => App\Models\Category::class
-    // ],
 
     /*
     |--------------------------------------------------------------------------
