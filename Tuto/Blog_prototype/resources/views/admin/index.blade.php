@@ -45,8 +45,7 @@
                   <a href="#" class="btn btn-danger btn-sm">Supprimer</a>
                 </td>
               </tr>
-
-              
+        
               @endforeach
                 <tr>
                   <td>2</td>
