@@ -123,4 +123,12 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    'providers' => [
+    // Other providers...
+    App\Providers\RepositoryServiceProvider::class,
+    Illuminate\Filesystem\FilesystemServiceProvider::class, // Should exist
+    Illuminate\Cache\CacheServiceProvider::class,
+
+
+]
 ];
