@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Interfaces\ProductRepositoryInterface;
 use App\Models\Product;
 use Illuminate\Http\Request;
 // use Validator;
@@ -9,13 +10,21 @@ use Illuminate\Support\Facades\Validator;
 
 class ProductController extends Controller
 {
+    protected $productRepository;
+
+    public function __construct( ProductRepositoryInterface $productRepository){
+        $this->productRepository = $productRepository;
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $products = Product::all();
+        $products = $this->productRepository->all();
         return view('products.index', compact('products'));
+
+        // $products = Product::all();
+        // return view('products.index', compact('products'));
         // return view('welcome', compact('products'));
 
         // $products = Product::withTrashed()->get();
@@ -89,8 +98,11 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        $product = Product::findOrFail($id);
-        $product->delete();
+        $product = $this->productRepository->delete($id);
+        return response()->json(['success' => true]);
+
+        // $product = Product::findOrFail($id);
+        // $product->delete();
         // try {
         //     $product = Product::findOrFail($id);
         //     $product->delete();
