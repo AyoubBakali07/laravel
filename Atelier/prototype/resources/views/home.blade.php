@@ -11,7 +11,10 @@
         <div class="card h-100 shadow mt-3">
             <!-- Product Image -->
             {{-- <img src="https://via.placeholder.com/286x180" class="card-img-top" alt="{{ $product->name }}"> --}}
-            
+            <img 
+            src="https://picsum.photos/seed/{{ $product->id  }}/286/180" 
+            class="card-img-top" 
+            alt="{{ $product->name }}">
             <div class="card-body">
                 <!-- Product Title -->
                 <h5 class="card-title">{{ $product->name }}</h5>
