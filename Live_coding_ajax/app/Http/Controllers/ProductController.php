@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -11,7 +12,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+
+        $products= Product::all();
+        return view('products.index', compact('products'));
     }
 
     /**
@@ -26,9 +29,23 @@ class ProductController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
-    }
+{
+    // Validate the request
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'description' => 'nullable|string',
+    ]);
+
+    // Create the product
+    $product = Product::create([
+        'name' => $request->name,
+        'description' => $request->description,
+    ]);
+
+    // Return the product as a JSON response
+    return response()->json($product);
+}
+
 
     /**
      * Display the specified resource.
@@ -58,7 +75,11 @@ class ProductController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
-    {
-        //
-    }
+{
+    $product = Product::findOrFail($id);
+    $product->delete();
+
+    
+    return response()->json(['success' => 'Product deleted successfully']);
+}
 }
