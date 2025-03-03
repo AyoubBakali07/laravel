@@ -31,7 +31,7 @@ import { Head, Link } from '@inertiajs/vue3';
                         Register
                     </Link>
                     <Link
-                    :href="route('Test')"
+                    :href="route('test')"
                     class = "inline-block rounded-sm bg-blue-500 px-5 py-1.5 text-sm text-white hover:bg-blue-600"
                     >
                     Go To Test Page
