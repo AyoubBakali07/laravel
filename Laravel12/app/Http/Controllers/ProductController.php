@@ -26,7 +26,7 @@ class ProductController extends Controller
             'price' => $request->price,
             'Stock' => $request->Stock,
         ]);
-        return redirect()->route('test')->with('success', 'Product created successfully.'); // Redirect to the 'test' route
+        return redirect()->route('test')->with('success', 'Product created successfully.');
 
     }
 }
