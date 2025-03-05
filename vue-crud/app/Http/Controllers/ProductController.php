@@ -39,6 +39,6 @@ class ProductController extends Controller
         ],200);
     }
     // update 
-    public 
+    // public chj
 
 }

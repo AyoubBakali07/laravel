@@ -3,7 +3,6 @@
 {{-- <button><a id="show" class="btn btn-primary" href="{{route('products.create')}}">Add product</a></button> --}}
 <a id="show" class="btn btn-primary m-3" href="{{ route('products.create') }}">Add Product</a>
 
-
 <div class="table-responsive">
     <table class="table table-striped">
         <thead class="thead-dark">

@@ -15,12 +15,7 @@ const routes = [
         name: 'products.create',
         component: productForm,
     },
-    // edite
-    {
-        path: '/products/:id/edit',
-        name: 'products.edit',
-        component: productForm,
-    },
+
 
     {
         path:'/:pathMatch(.*)*',
